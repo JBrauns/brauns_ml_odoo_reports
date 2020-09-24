@@ -1,0 +1,6 @@
+<?xml  version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="action_report_saleorder" inherit_id="sale.action_report_saleorder">
+    
+  </template>
+</odoo>
