@@ -9,6 +9,6 @@
     "installable": True,
     "depends": ["sale"],
     "data": [
-        "reports/sale_report.xml"
+        "report/sale_report.xml"
     ]
 }
