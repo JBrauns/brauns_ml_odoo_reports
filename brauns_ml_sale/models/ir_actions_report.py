@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import api, models
 
 class IrActionsReport(models.Model):
     _inherit = 'ir.actions.report'
