@@ -11,6 +11,5 @@
     "data": [
         "report/sale_report.xml",
         "report/sale_report_template.xml",
-        "models/ir_actions_report.py",
     ],
 }
