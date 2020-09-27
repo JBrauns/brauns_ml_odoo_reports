@@ -2,8 +2,12 @@
 <odoo>
   <template id="report_saleorder_document">
     <xpath expr=".">
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+        .field_return_font {
+          font-family: 'Source Sans Pro', sans-serif;
+        }
+        
         #field_return {
           position: absolute;
           height: 45mm;
@@ -35,10 +39,10 @@
       <t t-foreach="docs" t-as="doc">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
         <div id="field_return">
-          <div id="field_return_extra">
+          <div id="field_return_extra" class="field_return_font">
             <p>Zusatz- und Vermerkszone</p>
           </div>
-          <div id="field_return_addr">
+          <div id="field_return_addr" class="field_return_font">
             <p>Max Müller</p>
             <p>Firmenstraße 1</p>
             <p>45678 Muster</p>
