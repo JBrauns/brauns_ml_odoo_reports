@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_saleorder_document">
+    <xpath expr=".">
+      <t>
+        #field_return {
+          position: absolute;
+          height: 45mm;
+          margin-top: 27mm;
+          width:  85mm;
+          margin-left: 10mm;
+          background-color: rgb(149, 123, 190);
+        }
+        
+        #field_return_extra {
+          position: absolute;
+          height: 12.7mm;
+          margin-top: 5mm;
+          width: 80mm;
+          margin-left: 5mm;
+          background-color: rgba(80, 80, 80, 0.35);
+        }
+      
+        #field_return_addr {
+          height: 27.3mm;
+          margin-top: 17.7mm;
+          width:  80mm;
+          margin-left: 5mm;
+          background-color: rgba(80, 80, 80, 0.2);
+        }
+      </t>
+    </xpath>
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+        <div id="field_return">
+          <div id="field_return_extra">
+            <p>Zusatz- und Vermerkszone</p>
+          </div>
+          <div id="field_return_addr">
+            <p>Max Müller</p>
+            <p>Firmenstraße 1</p>
+            <p>45678 Muster</p>
+          </div>
+        </div>
+      </t>
+    </t>
+  </template>
+
+  <!-- Overwrite the sales report ID -->
+  <template id="sale.report_saleorder">
+    <t t-call="brauns_ml_sale.din5008_layout">
+      <t t-foreach="docs" t-as="doc">
+        <t t-call="brauns_ml_sale.report_saleorder_document"
+           t-lang="doc.partner_id.lang" />
+      </t>
+    </t>
+  </template>
+
+  <template id="din5008_layout" name="Report layout">&lt;!DOCTYPE html&gt;
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1" />
+        <title>
+          <t t-esc="title or 'Odoo Report'" />
+        </title>
+      
+        <!-- TODO(joshua): -->
+        <style>
+          #doc_din5008 {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+          }
+        </style>
+      </head>
+      <body id="doc_din5008">
+        <main>
+          <t t-raw="0" />
+        </main>
+      </body>
+    </html>
+  </template>
+</odoo>

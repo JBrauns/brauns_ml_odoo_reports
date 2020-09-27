@@ -10,5 +10,6 @@
     "depends": ["sale"],
     "data": [
         "report/sale_report.xml",
+        "report/sale_report_template.xml",
     ],
 }
