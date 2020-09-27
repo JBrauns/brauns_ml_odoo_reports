@@ -3,6 +3,7 @@
   <template id="report_saleorder_document">
     <xpath expr=".">
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap')
         #field_return {
           position: absolute;
           height: 45mm;
