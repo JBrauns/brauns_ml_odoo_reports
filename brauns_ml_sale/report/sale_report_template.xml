@@ -2,7 +2,7 @@
 <odoo>
   <template id="report_saleorder_document">
     <xpath expr=".">
-      <style>
+      <t>
         .field_return_font {
           font-family: 'Source Sans Pro', sans-serif;
         }
@@ -30,7 +30,7 @@
           margin-left: 5mm;
           background-color: rgba(80, 80, 80, 0.2);
         }
-      </style>
+      </t>
     </xpath>
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="doc">
@@ -75,7 +75,8 @@
             font-family: 'Source Sans Pro', sans-serif;
             line-height: 1.5;
             font-size: 12pt;
-            margin: 0;
+            margin-top: 0;
+            margin-bottom: 0;
             padding: 0;
             border: 0;
           }
