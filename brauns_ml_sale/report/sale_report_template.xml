@@ -96,9 +96,7 @@
         </style>
       </head>
       <body id="doc_din5008">
-        <main>
-          <t t-raw="0" />
-        </main>
+        <t t-raw="0" />
       </body>
     </html>
   </template>
