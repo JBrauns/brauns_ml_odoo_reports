@@ -8,7 +8,6 @@
         }
         
         #field_return {
-          position: absolute;
           height: 45mm;
           margin-top: 27mm;
           width:  85mm;
@@ -17,7 +16,6 @@
         }
         
         #field_return_extra {
-          position: absolute;
           height: 12.7mm;
           margin-top: 5mm;
           width: 80mm;
@@ -65,7 +63,7 @@
     <html>
       <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>
           <t t-esc="title or 'Odoo Report'" />
         </title>
@@ -82,12 +80,20 @@
             border: 0;
           }
           
-          #doc_din5008 {
-            width: 100%;
-            height: 100%;
+          div {
+            position: absolute;
             margin: 0;
             padding: 0;
             border: 0;
+          }
+          
+          #doc_din5008 {
+            width: 100%;
+            height: 200mm;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background-color: rgb(247, 247, 247);
           }
         </style>
       </head>
