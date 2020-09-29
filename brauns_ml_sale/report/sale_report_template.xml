@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <!-- Sale specific templates -->
   <template id="report_saleorder_document">
     <t t-call="brauns_ml_sale.external_layout">
       <t t-foreach="docs" t-as="doc">
@@ -18,6 +19,15 @@
     </t>
   </template>
   
+  <template id="sale.report_saleorder">
+    <t t-call="brauns_ml_sale.html_container">
+      <t t-foreach="docs" t-as="doc">
+        <t t-call="brauns_ml_sale.report_saleorder_document" t-lang="doc.partner_id.lang" />
+      </t>
+    </t>
+  </template>
+
+  <!-- Base templates -->
   <template id="external_layout">
     <t t-if="not o" t-set="o" t-value="doc" />
     
@@ -39,12 +49,12 @@
       <t t-raw="0" />
     </t>
     <t t-else="else"
-       t-call="brauns_ml.din5008_layout_a">
+       t-call="brauns_ml.external_layout_standard">
       <t t-raw="0" />
     </t>
   </template>
   
-  <template id="din5008_layout_a">
+  <template id="external_layout_standard">
     <div class="header header_dina_style">
       <div id="header_dina_logo">
         <img t-if="company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
@@ -52,17 +62,7 @@
     </div>
   </template>
 
-  <!-- Overwrite the sales report ID -->
-  <template id="sale.report_saleorder">
-    <t t-call="brauns_ml_sale.din5008_layout">
-      <t t-foreach="docs" t-as="doc">
-        <t t-call="brauns_ml_sale.report_saleorder_document"
-           t-lang="doc.partner_id.lang" />
-      </t>
-    </t>
-  </template>
-
-  <template id="din5008_layout" name="Report layout">&lt;!DOCTYPE html&gt;
+  <template id="html_container" name="Report layout">&lt;!DOCTYPE html&gt;
     <html>
       <head>
         <meta charset="utf-8" />
@@ -132,7 +132,7 @@
       <body id="doc_din5008">
         <div id="wrapwrap">
           <main>
-            <t t-raw="body"/>
+            <t t-raw="0"/>
           </main>
         </div>
       </body>
