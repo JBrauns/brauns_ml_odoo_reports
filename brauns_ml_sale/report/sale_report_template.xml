@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <template id="report_saleorder_document">
-    <t t-call="brauns_ml_sale.din5008_layout">
+    <t t-call="brauns_ml_sale.external_layout">
       <t t-foreach="docs" t-as="doc">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
         <div id="field_return">
@@ -16,6 +16,40 @@
         </div>
       </t>
     </t>
+  </template>
+  
+  <template id="external_layout">
+    <t t-if="not o" t-set="o" t-value="doc" />
+    
+    <t t-if="not company">
+      <!-- Multicompany -->
+      <t t-if="company_id">
+        <t t-set="company" t-value="company_id" />
+      </t>
+      <t t-elif="o and ('company_id' in o)">
+        <t t-set="company" t-value="o.company_id.sudo()" />
+      </t>
+      <t t-else="else">
+        <t t-set="company" t-value="res_company" />
+      </t>
+    </t>
+  
+    <t t-if="company.external_report_layout_id"
+       t-call="{{company.external_report_layout_id.key}}">
+      <t t-raw="0" />
+    </t>
+    <t t-else="else"
+       t-call="brauns_ml.din5008_layout_a">
+      <t t-raw="0" />
+    </t>
+  </template>
+  
+  <template id="din5008_layout_a">
+    <div class="header header_dina_style">
+      <div id="header_dina_logo">
+        <img t-if="company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
+      </div>
+    </div>
   </template>
 
   <!-- Overwrite the sales report ID -->
@@ -96,7 +130,7 @@
         </style>
       </head>
       <body id="doc_din5008">
-        <t t-raw="0" />
+        <t t-raw="body"/>
       </body>
     </html>
   </template>
