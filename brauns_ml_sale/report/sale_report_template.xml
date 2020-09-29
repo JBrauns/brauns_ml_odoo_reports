@@ -60,9 +60,9 @@
   </template>
   
   <template id="external_layout_standard">
-    <div class="header header_dina_style">
+    <div class="header">
       <div id="header_dina_logo">
-        <img t-if="company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
+        <img t-if="company and company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
       </div>
     </div>
   </template>
