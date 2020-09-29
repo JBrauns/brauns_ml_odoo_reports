@@ -130,7 +130,11 @@
         </style>
       </head>
       <body id="doc_din5008">
-        <t t-raw="body"/>
+        <div id="wrapwrap">
+          <main>
+            <t t-raw="body"/>
+          </main>
+        </div>
       </body>
     </html>
   </template>
