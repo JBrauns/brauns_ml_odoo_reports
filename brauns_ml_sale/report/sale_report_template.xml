@@ -54,7 +54,7 @@
       <t t-raw="0" />
     </t>
     -->
-    <t t-call="brauns_ml.external_layout_standard">
+    <t t-call="brauns_ml_sale.external_layout_standard">
       <t t-raw="0" />
     </t>
   </template>
