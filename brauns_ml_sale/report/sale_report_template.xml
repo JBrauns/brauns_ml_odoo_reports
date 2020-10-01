@@ -34,7 +34,6 @@
     <t t-if="not o" t-set="o" t-value="doc" />
     
     <t t-if="not company">
-      <p>DEBUG: Company not set</p>
       <!-- Multicompany -->
       <t t-if="company_id">
         <t t-set="company" t-value="company_id" />
@@ -46,10 +45,6 @@
         <t t-set="company" t-value="res_company" />
       </t>
     </t>
-    <t t-else="else">
-      <p>DEBUG: Company set</p>
-    </t>
-     <p t-field="company.external_report_layout_id.key"/>
     
     <t t-call="brauns_ml_sale.external_layout_standard">
       <t t-raw="0" />
@@ -114,6 +109,15 @@
           #doc_din5008 {
             width: 100%;
             height: 200mm;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background-color: rgb(247, 247, 247);
+          }
+          
+          # header_dina_logo {
+            width: 125mm;
+            height: 27mm;
             margin: 0;
             padding: 0;
             border: 0;
