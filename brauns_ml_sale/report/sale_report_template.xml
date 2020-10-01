@@ -69,9 +69,17 @@
   
   <template id="external_layout_standard">
     <div class="header">
-      <div id="header_dina_logo">
-        <img t-if="(company is not None) and company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
-      </div>
+      <t t-if="company">
+        <p>DEBUG: external_layout_standard >> Company set</p>
+        <!--
+        <div id="header_dina_logo">
+          <img t-if="(company is not None) and company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
+        </div>
+        -->
+      </t>
+      <t t-else="else">
+        <p>DEBUG: external_layout_standard >> Company NOT set</p>
+      </t>
     </div>
   </template>
   
