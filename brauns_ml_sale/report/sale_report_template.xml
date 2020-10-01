@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <!-- Sale specific templates -->
+  
   <template id="report_saleorder_document">
     <t t-call="brauns_ml_sale.external_layout">
       <t t-foreach="docs" t-as="doc">
@@ -27,11 +28,13 @@
     </t>
   </template>
 
-  <!-- Base templates -->
+  <!-- Content layout templates -->
+  
   <template id="external_layout">
     <t t-if="not o" t-set="o" t-value="doc" />
     
     <t t-if="not company">
+      <p>DEBUG: Company not set</p>
       <!-- Multicompany -->
       <t t-if="company_id">
         <t t-set="company" t-value="company_id" />
@@ -43,6 +46,12 @@
         <t t-set="company" t-value="res_company" />
       </t>
     </t>
+    <t t-else="else">
+      <p>DEBUG: Company set</p>
+    </t>
+    <t t-if="not company">
+      <p>DEBUG: Company STILL not set</p>
+    </t>
   
     <!--
     <t t-if="company.external_report_layout_id"
@@ -53,28 +62,35 @@
        t-call="brauns_ml.external_layout_standard">
       <t t-raw="0" />
     </t>
-    -->
     <t t-call="brauns_ml_sale.external_layout_standard">
       <t t-raw="0" />
     </t>
+    -->
   </template>
   
   <template id="external_layout_standard">
     <div class="header">
       <div id="header_dina_logo">
-        <img t-if="company and company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
+        <img t-if="(company is not None) and company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
       </div>
     </div>
   </template>
+  
+  <!-- Layout templates -->
+  
+  <template id="html_container">
+    <t t-call="brauns_ml_sale.report_layout">
+      <t t-raw="0" />
+    </t>
+  </template>
 
-  <template id="html_container" name="Report layout">&lt;!DOCTYPE html&gt;
+  <template id="report_layout" name="Report layout">
+    &lt;!DOCTYPE html&gt;
     <html>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>
-          <t t-esc="title or 'Odoo Report'" />
-        </title>
+        <title><t t-esc="title or 'Odoo Report'" /></title>
       
         <!-- TODO(joshua): -->
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap" rel="stylesheet" />
