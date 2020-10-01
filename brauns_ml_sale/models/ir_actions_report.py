@@ -18,5 +18,6 @@ class IrActionsReport(models.Model):
         # disable smart shrinking to allow absolute positioning and size
         # necessary for a clean din 5008 document
         command_args.extend(['--disable-smart-shrinking'])
+        _logger.info(f'Wkhtmltopdf command arguments: {", ".join(command_args)}')
 
         return command_args
