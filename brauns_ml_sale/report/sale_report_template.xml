@@ -48,9 +48,7 @@
     </t>
     <t t-else="else">
       <p>DEBUG: Company set</p>
-    </t>
-    <t t-if="not company">
-      <p>DEBUG: Company STILL not set</p>
+      <p t-field="company.external_report_layout_id.key"/>
     </t>
   
     <!--
