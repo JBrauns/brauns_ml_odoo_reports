@@ -73,7 +73,7 @@
         <p>DEBUG:_external_layout_standard_>>_Company_logo_set</p>
         <!--
         <div id="header_dina_logo">
-          <img t-if="(company is not None) and company.logo" t-att-src="image_dara_uri(company.logo)" alt="Logo" />
+          <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
         </div>
         -->
       </t>
