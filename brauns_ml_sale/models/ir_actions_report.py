@@ -1,4 +1,8 @@
+import logging
+
 from odoo import api, models
+
+_logger = logging.getLogger(__name__)
 
 class IrActionsReport(models.Model):
     _inherit = 'ir.actions.report'
