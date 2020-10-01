@@ -64,7 +64,7 @@
   
   <template id="external_layout_standard">
     <div class="header">
-      <div id="header_dina_logo">
+      <div id="header_dina">
         <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
       </div>
     </div>
@@ -115,7 +115,7 @@
             background-color: rgb(247, 247, 247);
           }
           
-          # header_dina_logo {
+          #header_dina {
             width: 125mm;
             height: 27mm;
             margin: 0;
