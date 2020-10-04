@@ -132,7 +132,7 @@ class IrActionsReport(models.Model):
         command_args = self.change_command_arg(command_args, 'margin-left', '0')
 
         # Remove unnecessary layout elements
-        command_args = self.pop_command_arg(command_args, 'header-line', False)
+        #command_args = self.pop_command_arg(command_args, 'header-line', False)
         command_args = self.pop_command_arg(command_args, 'header-spacing', True)
 
         # disable smart shrinking to allow absolute positioning and size
