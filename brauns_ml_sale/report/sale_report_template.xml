@@ -65,7 +65,7 @@
   <template id="external_layout_standard">
     <div id="dina-header" class="header clean-block">
       <style>
-        body, .clean-block {
+        body, .clean-block, #minimal_layout_report_headers {
           margin: 0;
           padding: 0;
           border: 0;
@@ -76,6 +76,12 @@
         div {
           position: absolute;
           background-color: rgb(197,197,197);
+        }
+        
+        #minimal_layout_report_headers {
+          position: absolute;
+          width: 100%;
+          height: 100%;
         }
   
         .div-wrapper {
