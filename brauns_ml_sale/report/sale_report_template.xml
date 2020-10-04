@@ -6,6 +6,13 @@
     <t t-call="brauns_ml_sale.external_layout">
       <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
       <style>
+        .div-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-color: rgb(244,184,184);
+        }
+        
         #address-base {
           height: 45mm;
           margin-top: 0mm;
@@ -44,6 +51,8 @@
           right: 0;
           background-color: rgb(197,197,197);
         }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
       </style>
       <div id="address-base">
         <div class="div-wrapper">
@@ -118,6 +127,25 @@
   <template id="external_layout_standard">
     <div id="dina-header" class="header clean-block">
       <style>
+        body, div {
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+      
+        p {
+          font-family: 'Source Sans Pro', sans-serif;
+          line-height: 1.5;
+          font-size: 12pt;
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+      
+        div {
+          position: absolute;
+        }
+          
         body, .clean-block, #minimal_layout_report_headers {
           margin: 0;
           padding: 0;
