@@ -91,7 +91,7 @@ class IrActionsReport(models.Model):
             value_index = arg_index + 1
             if(len(args) <= value_index):
                 raise AssertionError(f'Argument list too short (probably arg with flag-type)')
-            if(args[value_index].beginswith('-')):
+            if(args[value_index].startswith('-')):
                 raise AssertionError(f'Argument {arg_name} does not have a value')
             
             if(not isinstance(value, str)):
