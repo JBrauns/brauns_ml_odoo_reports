@@ -6,7 +6,7 @@
     <t t-call="brauns_ml_sale.external_layout">
       <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
       <style>
-        body, div {
+        body, div, .article {
           margin: 0;
           padding: 0;
           border: 0;
@@ -23,6 +23,12 @@
       
         div {
           position: absolute;
+        }
+        
+        .article {
+          width: 100%;
+          height: 68.46mm;
+          margin-left: 20mm;
         }
           
         .div-wrapper {
