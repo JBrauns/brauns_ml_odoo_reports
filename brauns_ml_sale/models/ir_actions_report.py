@@ -128,8 +128,8 @@ class IrActionsReport(models.Model):
 
         # The way the zoom argument is used within the dpí cal
         command_args = self.change_command_arg(command_args, 'zoom', '1.0')
-        command_args = self.pop_command_arg(command_args, 'margin-top', '32')
-        command_args = self.pop_command_arg(command_args, 'margin-left', '0')
+        command_args = self.change_command_arg(command_args, 'margin-top', '32')
+        command_args = self.change_command_arg(command_args, 'margin-left', '0')
 
         # Remove unnecessary layout elements
         command_args = self.pop_command_arg(command_args, 'header-line', False)
