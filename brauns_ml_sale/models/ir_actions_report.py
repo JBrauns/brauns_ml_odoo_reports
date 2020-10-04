@@ -66,8 +66,8 @@ class IrActionsReport(models.Model):
             super(IrActionsReport, self)._prepare_html(html)
 
         # dump items...
-        _logger.info(f'WKHTMLTOPDF: header({etree.tostring(header, pretty_print=True)})')
-        _logger.info(f'WKHTMLTOPDF: footer({etree.tostring(footer, pretty_print=True)})')
+        _logger.info(f'WKHTMLTOPDF: header({etree.tostring(header, pretty_print=True).decode("utf-8")})')
+        _logger.info(f'WKHTMLTOPDF: footer({etree.tostring(footer, pretty_print=True).decode("utf-8")})')
 
         return bodies, res_ids, header, footer, specific_paperformat_args
 
