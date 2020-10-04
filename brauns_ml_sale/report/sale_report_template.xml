@@ -63,7 +63,7 @@
   </template>
   
   <template id="external_layout_standard">
-    <div class="header">
+    <div id="dina-header" class="header clean-block">
       <style>
         body, .clean-block {
           margin: 0;
@@ -103,11 +103,9 @@
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
       </style>
       
-      <div id="dina-header" class="clean-block">
-        <div class="div-wrapper clean-block">
-          <div id="dina-header-logo" class="clean-block">
-            <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
-          </div>
+      <div class="div-wrapper clean-block">
+        <div id="dina-header-logo" class="clean-block">
+          <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
         </div>
       </div>
     </div>
