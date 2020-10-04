@@ -9,53 +9,96 @@ _logger = logging.getLogger(__name__)
 class IrActionsReport(models.Model):
     _inherit = 'ir.actions.report'
 
+    def get_arg_formatted(
+        self,
+        arg_name
+    ):
+        """Format the argument name
+
+        The argument is stored with a dash prefix (single '-' for
+        1-letter arguments and double '--' for n-letter arguments)
+        """
+        try:
+            while(arg_name.startswith('-')):
+                if(len(arg_name) <= 0):
+                    break
+                arg_name = arg_name[1:]
+            if(len(arg_name) == 0):
+                raise ValueError('Argument is of len zero')
+            arg_name = '-' + arg_name
+            if(len(arg_name) > 1):
+                arg_name = '-' + arg_name
+        except ValueError as exc:
+            _logger.error(f'get_arg_formatted: {str(exc)}')
+        return arg_name
+
     def pop_command_arg(
         self,
         args,
         arg_name,
         has_value
     ):
-        # allowed arg_types:
-        #   flag - Simple argument prefixed with a single or double '-' without a value
-        #   path - Argument with a path given as the value
-        #   
-        if(not isinstance(args, list)):
-            _logger.error(f'WKHTMLTOPDF: Argument list is empty')
-            return args
-        if(len(arg_name) == 0):
-            _logger.error(f'WKHTMLTOPDF: Argument is empty')
-            return args
-        
-        # 1. remove possible dashes
-        # 2. add back dashes based on the length of the argument (l=1 or l>1)
-        while(arg_name.startswith('-')):
-            arg_name = arg_name[1:]
-        if(len(arg_name) == 0):
-            _logger.error(f'WKHTMLTOPDF: Argument is empty')
-            return args
-        arg_name = '-' + arg_name
-        if(len(arg_name) > 1):
-            arg_name = '-' + arg_name
-        
-        # 1. get the argument index
-        # 2. remove the argument [remove the value]
+        """Remove entry from the command arg list (value- or flag-type)
+
+        Keyword arguments:
+        args -- The list of arguments
+        arg_name -- The name of the argument to remove
+        has_value -- If True the argument + value is removed, otherwise only the argument
+        """
         try:
-            arg_index = args.index(arg_name)
-        except ValueError:
-            _logger.warning(f'WKHTMLTOPDF: Argument "{arg_name}" not found')
-            return args
+            if(not isinstance(args, list)):
+                raise AssertionError('Argument list is empty')
+            if(len(arg_name) == 0):
+                raise AssertionError('Argument is empty')
+            
+            arg_name = self.get_arg_formatted(arg_name)
+            if(arg_name in args):
+                arg_index = args.index(arg_name)
+            else:
+                raise AssertionError(f'Argument {arg_name} not found in list')
 
-        while(True):
-            try:
+            while(True):
+                if(len(args) <= 0):
+                    raise AssertionError('Argument list is empty')
                 args.pop(arg_index)
-            except IndexError:
-                _logger.error(f'WKHTMLTOPDF: Argument list is empty')
-                return args
-            if(has_value):
-                has_value = False
-                continue
-            break
+                if(has_value):
+                    has_value = False
+                    continue
+                break
 
+        except AssertionError as exc:
+            _logger.error(f'pop_command_arg: {str(exc)}')
+        return args
+
+    def change_command_arg(
+        self,
+        args,
+        arg_name,
+        value
+    ):
+        try:
+            if(not isinstance(args, list)):
+                raise AssertionError('Argument list is empty')
+            if(len(arg_name) == 0):
+                raise AssertionError('Argument is empty')
+            
+            arg_name = self.get_arg_formatted(arg_name)
+            if(arg_name in args):
+                arg_index = args.index(arg_name)
+            else:
+                raise AssertionError(f'Argument {arg_name} not found in list')
+
+            value_index = arg_index + 1
+            if(len(args) <= value_index):
+                raise AssertionError(f'Argument list too short (probably arg with flag-type)')
+            if(args[value_index].beginswith('-')):
+                raise AssertionError(f'Argument {arg_name} does not have a value')
+            
+            if(not isinstance(value, str)):
+                value = str(value)
+            args[value_index] = value
+        except AssertionError as exc:
+            _logger.error(f'pop_command_arg: {str(exc)}')
         return args
 
     def _prepare_html(
@@ -66,8 +109,8 @@ class IrActionsReport(models.Model):
             super(IrActionsReport, self)._prepare_html(html)
 
         # dump items...
-        _logger.info(f'WKHTMLTOPDF: header({header.decode("utf-8")})')
-        _logger.info(f'WKHTMLTOPDF: footer({footer.decode("utf-8")})')
+        #_logger.info(f'WKHTMLTOPDF: header({header.decode("utf-8")})')
+        #_logger.info(f'WKHTMLTOPDF: footer({footer.decode("utf-8")})')
 
         return bodies, res_ids, header, footer, specific_paperformat_args
 
@@ -84,11 +127,13 @@ class IrActionsReport(models.Model):
             set_viewport_size=set_viewport_size)
 
         # The way the zoom argument is used within the dpí cal
-        command_args = self.pop_command_arg(command_args, 'zoom', True)
-        command_args.extend(['--zoom', '1.0'])
+        command_args = self.change_command_arg(command_args, 'zoom', '1.0')
+        command_args = self.pop_command_arg(command_args, 'margin-top', '32')
+        command_args = self.pop_command_arg(command_args, 'margin-left', '0')
 
         # Remove unnecessary layout elements
         command_args = self.pop_command_arg(command_args, 'header-line', False)
+        command_args = self.pop_command_arg(command_args, 'header-spacing', True)
 
         # disable smart shrinking to allow absolute positioning and size
         # necessary for a clean din 5008 document
