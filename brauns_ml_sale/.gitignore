@@ -1,0 +1,6 @@
+*.sln
+*.pyproj
+.vs
+
+/dev
+/dev/*
