@@ -98,8 +98,10 @@
         }
   
         #dina-header-logo {
-          right: 20mm;
-          bottom: 5mm;
+          left: 20mm;
+          bottom: 0mm;
+          max-height: 22mm;
+          max-width: 105mm;
         }
   
         #dina-header-logo img {
