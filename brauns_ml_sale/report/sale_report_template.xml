@@ -64,8 +64,51 @@
   
   <template id="external_layout_standard">
     <div class="header">
-      <div id="header_dina">
-        <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
+      <style>
+        body, .clean-block {
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+
+        p { font-family: 'Source Sans Pro', sans-serif; }
+  
+        div {
+          position: absolute;
+          background-color: rgb(197,197,197);
+        }
+  
+        .div-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-color: rgb(244,184,184);
+        }
+  
+        #dina-header {
+          position: relative;
+          height: 32mm;
+          width: 115mm;
+        }
+  
+        #dina-header-logo {
+          right: 20mm;
+          bottom: 5mm;
+        }
+  
+        #dina-header-logo img {
+          display: block;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
+      </style>
+      
+      <div id="dina-header" class="clean-block">
+        <div class="div-wrapper clean-block">
+          <div id="dina-header-logo" class="clean-block">
+            <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
+          </div>
+        </div>
       </div>
     </div>
   </template>
