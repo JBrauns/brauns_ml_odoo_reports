@@ -100,12 +100,12 @@
         #dina-header-logo {
           left: 20mm;
           bottom: 0mm;
-          max-height: 22mm;
-          max-width: 105mm;
         }
   
         #dina-header-logo img {
           display: block;
+          max-height: 22mm;
+          max-width: 105mm;
         }
         
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
