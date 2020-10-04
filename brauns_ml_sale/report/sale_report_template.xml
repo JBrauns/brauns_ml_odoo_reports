@@ -113,6 +113,54 @@
     </div>
   </template>
   
+  <template id="web.minimal_layout">
+    &lt;!DOCTYPE html&gt;
+    <t t-raw="'&lt;base href=%s%gt;' % base_url" />
+    <html>
+      <head>
+        <!-- TODO: What to put here? -->
+        <meta charset="utf-8" />
+        <t t-set="subst_needed" t-value="subs is True" />
+        <t t-if="subst_needed">
+          <script>
+            function subst() {
+              var vars = {};
+              var x = document.location.search.substring(1).split('&amp;');
+              for (var i in x) {
+                  var z = x[i].split('=', 2);
+                  vars[z[0]] = unescape(z[1]);
+              }
+              var x = ['sitepage', 'sitepages', 'section', 'subsection', 'subsubsection'];
+              var z = {'sitepage': 'page', 'sitepages': 'topage'};
+              for (var i in x) {
+                  var y = document.getElementsByClassName(z[x[i]] || x[i])
+                  for (var j=0; j&lt;y.length; ++j)
+                      y[j].textContent = vars[x[i]];
+              }
+
+              var index = vars['webpage'].split('.', 4)[3];
+              var header = document.getElementById('minimal_layout_report_headers');
+              if(header !== null){
+                  var companyHeader = header.children[index];
+                  header.textContent = '';
+                  header.appendChild(companyHeader);
+              }
+              var footer = document.getElementById('minimal_layout_report_footers');
+              if(footer !== null){
+                  var companyFooter = footer.children[index];
+                  footer.textContent = '';
+                  footer.appendChild(companyFooter);
+              }
+            }
+          </script>
+        </t>
+      </head>
+      <body t-att-onload="subst_needed and 'subst()'">
+        <t t-raw="body"/>
+      </body>
+    </html>
+  </template>
+  
   <!-- Layout templates -->
   
   <template id="html_container">
