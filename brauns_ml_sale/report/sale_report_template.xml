@@ -4,74 +4,72 @@
   
   <template id="report_saleorder_document">
     <t t-call="brauns_ml_sale.external_layout">
-      <t t-foreach="docs" t-as="doc">
-        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
-        <style>
-          #address-base {
-            height: 45mm;
-            margin-top: 0mm;
-            width:  85mm;
-            background-color: rgb(97,97,97);
-            vertical-align: right;
-          }
+      <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+      <style>
+        #address-base {
+          height: 45mm;
+          margin-top: 0mm;
+          width:  85mm;
+          background-color: rgb(97,97,97);
+          vertical-align: right;
+        }
 
-          #address-additional {
-            height: 12.7mm;
-            width:  80mm;
-            top: 5mm;
-            right: 0;
-            background-color: rgba(197,197,197,0.5);
-          }
+        #address-additional {
+          height: 12.7mm;
+          width:  80mm;
+          top: 5mm;
+          right: 0;
+          background-color: rgba(197,197,197,0.5);
+        }
 
-          #address-info {
-            height: 27.3mm;
-            width:  80mm;
-            bottom: 0;
-            right: 0;
-            background-color: rgba(197,197,197,0.25);
-          }
+        #address-info {
+          height: 27.3mm;
+          width:  80mm;
+          bottom: 0;
+          right: 0;
+          background-color: rgba(197,197,197,0.25);
+        }
 
-          #sender-base {
-            height: 55mm;
-            width: 75mm;
-            right: 10mm;
-            top: 5mm;
-          }
+        #sender-base {
+          height: 55mm;
+          width: 75mm;
+          right: 10mm;
+          top: 5mm;
+        }
 
-          #sender-info {
-            min-height: 40mm;
-            max-width: 75mm;
-            top: 0;
-            right: 0;
-            background-color: rgb(197,197,197);
-          }
-        </style>
-        <div id="address-base">
-          <div class="div-wrapper">
-            <div id="address-additional">
-              <p>Zusatz- und Vermerkszone</p>
-            </div>
-            <div id="address-info">
-              <p>Max Müller</p>
-              <p>Firmenstraße 1</p>
-              <p>45678 Muster</p>
-            </div>
+        #sender-info {
+          min-height: 40mm;
+          max-width: 75mm;
+          top: 0;
+          right: 0;
+          background-color: rgb(197,197,197);
+        }
+      </style>
+      <div id="address-base">
+        <div class="div-wrapper">
+          <div id="address-additional">
+            <p>Zusatz- und Vermerkszone</p>
+          </div>
+          <div id="address-info">
+            <p>Max Müller</p>
+            <p>Firmenstraße 1</p>
+            <p>45678 Muster</p>
           </div>
         </div>
-        <div id="sender-base">
-          <div class="div-wrapper">
-            <div id="sender-info">
-              <p>Ihr Zeichen: abc-01</p>
-              <p>Ihre Nachricht vom: 2013-04-23</p>
-              <p>Unser Zeichen: mihh-00</p>
-              <p>Unsere Nachricht vom: 2013-04-16</p>
-              <p></p>
-              <p>Name: Christian Schmidtberger</p>
-              <p>Telefon: 040 1234-5678</p>
-            </div>
+      </div>
+      <div id="sender-base">
+        <div class="div-wrapper">
+          <div id="sender-info">
+            <p>Ihr Zeichen: abc-01</p>
+            <p>Ihre Nachricht vom: 2013-04-23</p>
+            <p>Unser Zeichen: mihh-00</p>
+            <p>Unsere Nachricht vom: 2013-04-16</p>
+            <p></p>
+            <p>Name: Christian Schmidtberger</p>
+            <p>Telefon: 040 1234-5678</p>
           </div>
         </div>
-      </t>
+      </div>
     </t>
   </template>
   
