@@ -27,7 +27,7 @@
         }
         
         .article {
-          width: 100%;
+          width: 180mm;
           height: 68.46mm;
           margin-left: 20mm;
         }
@@ -81,7 +81,7 @@
       <div id="address-base">
         <div class="div-wrapper">
           <div id="address-additional">
-            <p style="font-family: 'Source Sans Pro', mono;">Zusatz- und Vermerkszone</p>
+            <p>Zusatz- und Vermerkszone</p>
           </div>
           <div id="address-info">
             <p>Max Müller</p>
