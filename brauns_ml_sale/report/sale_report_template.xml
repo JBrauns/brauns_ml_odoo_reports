@@ -19,10 +19,6 @@
           font-size: 11pt;
         }
         
-        .font-small {
-          font-size: 10pt;
-        }
-      
         div {
           position: absolute;
         }
@@ -57,6 +53,10 @@
           top: 5mm;
           right: 0;
         }
+        
+        #address-additional p {
+          font-size: 10pt;
+        }
 
         #address-info {
           height: 27.3mm;
@@ -82,7 +82,7 @@
       <div id="address-base">
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
-            <p class="font-small" t-field="company.partner_id.name"/>
+            <p t-field="company.partner_id.name"/>
           </div>
           <div id="address-info" class="grey-box">
             <p>Max Müller</p>
