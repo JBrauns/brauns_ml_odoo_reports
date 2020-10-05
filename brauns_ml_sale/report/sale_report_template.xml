@@ -5,9 +5,8 @@
   <template id="report_saleorder_document">
     <t t-call="brauns_ml_sale.external_layout">
       <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
-        
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap" rel="stylesheet"> 
+      <style>        
         body, div, .article {
           margin: 0;
           padding: 0;
