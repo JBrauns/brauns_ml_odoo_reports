@@ -16,7 +16,7 @@
         p {
           font-family: 'Source Sans Pro', Arial;
           line-height: 1.5;
-          font-size: 12pt;
+          font-size: 11pt;
         }
         
         .font-small {
@@ -82,7 +82,7 @@
       <div id="address-base">
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
-            <p class="font-small">Bernecker Cosmetics GmbH</p>
+            <p class="font-small" t-field="company.partner_id.name"/>
           </div>
           <div id="address-info" class="grey-box">
             <p>Max Müller</p>
