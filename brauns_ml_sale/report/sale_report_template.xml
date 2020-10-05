@@ -82,7 +82,8 @@
       <div id="address-base">
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
-            <p t-field="doc.company_id.name + '|'"/>
+            <t t-set="company_extra" t-value="doc.company_id.name + '|'"/>
+            <p t-field="company_extra"/>
           </div>
           <div id="address-info" class="grey-box">
             <p>Max Müller</p>
