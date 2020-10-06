@@ -83,7 +83,7 @@
         <t t-set="this_company" t-value="doc.company_id"/>
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
-            <t t-set="company_extra" t-value="this_company.name + ' ' + this_company.partner_id.address"/>
+            <t t-set="company_extra" t-value="this_company.name + ' ' + ','.join(dir(this_company))"/>
             <p><t t-esc="company_extra"/></p>
           </div>
           <div id="address-info" class="grey-box">
