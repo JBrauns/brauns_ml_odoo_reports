@@ -78,22 +78,6 @@
           top: 0;
           right: 0;
         }
-        
-        .foldmark {
-          position: absolute;
-          margin: 0;
-          width: 10mm;
-          border: 0;
-          border-top: 1px solid black;
-        }
-      
-        #foldmark-1 {
-          margin-top: 60mm;
-        }
-      
-        #foldmark-2 {
-          margin-top: 165mm;
-        }
       </style>
       <div id="address-base">
         <t t-set="cid" t-value="doc.company_id"/>
@@ -122,8 +106,6 @@
           </div>
         </div>
       </div>
-      <hr id="foldmark-1" class="foldmark"/>
-      <hr id="foldmark-2" class="foldmark"/>
     </t>
   </template>
   
@@ -215,6 +197,22 @@
           max-width: 105mm;
         }
         
+        .foldmark {
+          position: absolute;
+          margin: 0;
+          width: 10mm;
+          border: 0;
+          border-top: 1px solid black;
+        }
+      
+        #foldmark-1 {
+          margin-top: 60mm;
+        }
+      
+        #foldmark-2 {
+          margin-top: 165mm;
+        }
+        
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
       </style>
       
@@ -228,6 +226,9 @@
     <div class="article">
       <t t-raw="0" />
     </div>
+    
+    <hr id="foldmark-1" class="foldmark"/>
+    <hr id="foldmark-2" class="foldmark"/>
   </template>
   
   <template id="web.minimal_layout">
