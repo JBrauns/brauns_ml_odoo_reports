@@ -109,7 +109,7 @@
             <p>Ihre Nachricht vom: 2013-04-23</p>
             <p>Unser Zeichen: mihh-00</p>
             <p>Unsere Nachricht vom: 2013-04-16</p>
-            <p>&nbsp;</p>
+            <p>&#32;</p>
             <t t-if="cid.phone">
               <p><t t-esc="cid.phone"/></p>
             </t>
