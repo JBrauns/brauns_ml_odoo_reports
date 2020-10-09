@@ -196,7 +196,18 @@
           max-height: 22mm;
           max-width: 105mm;
         }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
+      </style>
+      
+      <div class="div-wrapper clean-block">
+        <div id="dina-header-logo" class="clean-block">
+          <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
+        </div>
+      </div>
+    </div>
+  
+    <div class="article">
+      <style>
         .foldmark {
           position: absolute;
           margin: 0;
@@ -213,22 +224,12 @@
           margin-top: 165mm;
         }
         
-        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
       </style>
-      
-      <div class="div-wrapper clean-block">
-        <div id="dina-header-logo" class="clean-block">
-          <img t-if="(company is not None) and company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
-        </div>
-      </div>
-    </div>
-  
-    <div class="article">
       <t t-raw="0" />
-    </div>
     
-    <hr id="foldmark-1" class="foldmark"/>
-    <hr id="foldmark-2" class="foldmark"/>
+      <hr id="foldmark-1" class="foldmark"/>
+      <hr id="foldmark-2" class="foldmark"/>
+    </div>
   </template>
   
   <template id="web.minimal_layout">
