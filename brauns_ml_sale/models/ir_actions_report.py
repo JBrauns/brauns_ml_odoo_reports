@@ -109,7 +109,7 @@ class IrActionsReport(models.Model):
             super(IrActionsReport, self)._prepare_html(html)
 
         # dump items...
-        _logger.info(f'WKHTMLTOPDF: header({header.decode("utf-8")})')
+        #_logger.info(f'WKHTMLTOPDF: header({header.decode("utf-8")})')
         #_logger.info(f'WKHTMLTOPDF: footer({footer.decode("utf-8")})')
 
         return bodies, res_ids, header, footer, specific_paperformat_args
@@ -139,5 +139,5 @@ class IrActionsReport(models.Model):
         # necessary for a clean din 5008 document
         command_args.extend(['--disable-smart-shrinking'])
         
-        _logger.info(f'WKHTMLTOPDF: args({", ".join(command_args)})')
+        # _logger.info(f'WKHTMLTOPDF: args({", ".join(command_args)})')
         return command_args

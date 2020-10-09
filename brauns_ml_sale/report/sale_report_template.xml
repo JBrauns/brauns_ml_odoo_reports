@@ -101,8 +101,8 @@
               <p><t t-esc="pid.street"/></p>
             </t>
             <t t-if="pid.zip and pid.city">
-              <t t-set="rec_address2" t-value="' '.join((pid.zip, pid.city))"/>
-              <p><t t-esc="rec_address2"/></p>
+              <t t-set="pid_adress" t-value="' '.join((pid.zip, pid.city))"/>
+              <p><t t-esc="pid_adress"/></p>
             </t>
           </div>
         </div>
@@ -110,10 +110,19 @@
       <div id="sender-base">
         <div class="div-wrapper">
           <div id="sender-info" class="grey-box">
-            <p>Ihr Zeichen: abc-01</p>
-            <p>Ihre Nachricht vom: 2013-04-23</p>
-            <p>Unser Zeichen: mihh-00</p>
-            <p>Unsere Nachricht vom: 2013-04-16</p>
+            <t t-if="cid.name">
+              <p><t t-esc="cid.name"/></p>
+            </t>
+            <t t-if="cid.street">
+              <p><t t-esc="cid.street"/></p>
+            </t>
+            <t t-if="cid.street2">
+              <p><t t-esc="cid.street2"/></p>
+            </t>
+            <t t-if="cid.zip and cid.city">
+              <t t-set="cid_adress" t-value="' '.join((cid.zip, cid.city))"/>
+              <p><t t-esc="cid_adress"/></p>
+            </t>
             <p></p>
             <t t-if="cid.phone">
               <p><t t-esc="cid.phone"/></p>
@@ -198,7 +207,7 @@
           position: relative;
           width: 100%;
           height: 100%;
-          background-color: rgb(244,184,184);
+          /* background-color: rgb(244,184,184); */
         }
   
         #dina-header {
