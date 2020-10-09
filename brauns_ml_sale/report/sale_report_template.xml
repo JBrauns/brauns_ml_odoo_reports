@@ -194,7 +194,7 @@
   
         div {
           position: absolute;
-          background-color: rgb(197,197,197);
+          /* background-color: rgb(197,197,197); */
         }
         
         #minimal_layout_report_headers {
