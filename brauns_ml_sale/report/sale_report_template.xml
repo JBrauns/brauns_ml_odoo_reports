@@ -80,9 +80,9 @@
           right: 0;
         }
       </style>
+      <t t-set="cid" t-value="doc.company_id"/>
+      <t t-set="pid" t-value="doc.partner_id"/>
       <div id="address-base">
-        <t t-set="cid" t-value="doc.company_id"/>
-        <t t-set="pid" t-value="doc.partner_id"/>
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
             <t t-set="company_extra" t-value="' '.join((cid.name, cid.street, '|', cid.zip, cid.city))"/>
@@ -110,8 +110,15 @@
             <p>Unser Zeichen: mihh-00</p>
             <p>Unsere Nachricht vom: 2013-04-16</p>
             <p></p>
-            <p>Name: Christian Schmidtberger</p>
-            <p>Telefon: 040 1234-5678</p>
+            <t t-if="cid.phone">
+              <p><t t-esc="cid.phone"/></p>
+            </t>
+            <t t-if="cid.email">
+              <p><t t-esc="cid.email"/></p>
+            </t>
+            <t t-if="cid.website">
+              <p><t t-esc="cid.website"/></p>
+            </t>
           </div>
         </div>
       </div>
