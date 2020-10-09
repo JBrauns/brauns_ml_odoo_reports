@@ -80,14 +80,14 @@
         }
       </style>
       <div id="address-base">
-        <t t-set="this_company" t-value="doc.company_id"/>
+        <t t-set="cid" t-value="doc.company_id"/>
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
-            <t t-set="company_extra" t-value="this_company.name + ' '"/>
+            <t t-set="company_extra" t-value="' '.join(cid.name, cid.street, '|', cid.zip, cid.city)"/>
             <p><t t-esc="company_extra"/></p>
           </div>
           <div id="address-info" class="grey-box">
-            <p>Max Müller</p>
+            <p>Max Müller</p> b
             <p>Firmenstraße 1</p>
             <p>45678 Muster</p>
           </div>
