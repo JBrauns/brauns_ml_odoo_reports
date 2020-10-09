@@ -24,7 +24,7 @@
         }
         
         .article {
-          width: 180mm;
+          width: 200mm;
           height: 68.46mm;
           margin-left: 0mm;
         }
