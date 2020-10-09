@@ -82,15 +82,23 @@
       </style>
       <div id="address-base">
         <t t-set="cid" t-value="doc.company_id"/>
+        <t t-set="pid" t-value="doc.partner_id"/>
         <div class="div-wrapper">
           <div id="address-additional" class="grey-box">
             <t t-set="company_extra" t-value="' '.join((cid.name, cid.street, '|', cid.zip, cid.city))"/>
             <p><t t-esc="company_extra"/></p>
           </div>
           <div id="address-info" class="grey-box">
-            <p>Max Müller</p>
-            <p>Firmenstraße 1</p>
-            <p>45678 Muster</p>
+            <t t-if="pid.name">
+              <p><t t-esc="pid.name"/></p>
+            </t>
+            <t t-if="pid.street">
+              <p><t t-esc="pid.street"/></p>
+            </t>
+            <t t-if="pid.zip and pid.city">
+              <t t-set="rec_address2" t-value="' '.join((pid.zip, pid.city))"/>
+              <p><t t-esc="rec_address2"/></p>
+            </t>
           </div>
         </div>
       </div>
