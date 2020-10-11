@@ -253,6 +253,24 @@
                     <td>Rechnungsdatum:</td>
                     <td>28.05.15</td>
                   </tr>
+                  <tr>
+                    <td>Lieferdatum:</td>
+                    <td>28.05.15</td>
+                  </tr>
+                  <t t-if="doc.client_order_ref">
+                    <tr>
+                      <td>Bearbeiter:</td>
+                      <td><t t-esc="doc.client_order_ref"/></td>
+                    </tr>
+                  </t>
+                  <tr>
+                    <td>Telefon:</td>
+                    <td>28.05.15</td>
+                  </tr>
+                  <tr>
+                    <td>E-Mail:</td>
+                    <td>28.05.15</td>
+                  </tr>
                 </table>
               </td>
             </tr>
