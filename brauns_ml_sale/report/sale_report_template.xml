@@ -194,6 +194,12 @@
       <div id="test-div" style="visibility: hidden; height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;"></div><div id="dina-body">
       
       <style>
+        th {
+          font-size: 10pt;
+          padding-top: 3mm;
+          padding-bottom: 3mm;
+        }
+      
         .table-parent {
           width: 100%;
         }
@@ -217,10 +223,13 @@
           width: 100%;
         }
       
+        #sales-table {
+          margin-top: 10mm;
+        }
+      
         #sales-table td {
           line-height: 1;
           vertical-align: top;
-          margin-top: 10mm;
         }
       
         #sales-table td:nth-child(1), td:nth-child(2), td:nth-child(3),
