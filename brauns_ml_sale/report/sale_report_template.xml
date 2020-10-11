@@ -257,10 +257,10 @@
                     <td>Lieferdatum:</td>
                     <td>28.05.15</td>
                   </tr>
-                  <t t-if="doc.client_order_ref">
+                  <t t-if="doc.user_id.name">
                     <tr>
                       <td>Bearbeiter:</td>
-                      <td><t t-esc="doc.client_order_ref"/></td>
+                      <td><t t-esc="doc.user_id.name"/></td>
                     </tr>
                   </t>
                   <tr>
