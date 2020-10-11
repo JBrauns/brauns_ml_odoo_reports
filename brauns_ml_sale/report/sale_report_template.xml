@@ -13,10 +13,18 @@
           border: 0;
         }
       
-        p {
+        p, h1, h2 {
           font-family: 'Source Sans Pro', Arial;
           line-height: 1.5;
           font-size: 10pt;
+        }
+      
+        h1 {
+          font-size: 14pt;
+        }
+      
+        h2 {
+          font-size: 12pt;
         }
         
         p:empty:before {
@@ -84,7 +92,14 @@
           top: 0;
           right: 0;
         }
+
+        #text-base {
+          width: 165mm;
+          min-height: 20mm;
+          margin-left: 25mm;
+        }
       </style>
+      
       <t t-set="cid" t-value="doc.company_id"/>
       <t t-set="pid" t-value="doc.partner_id"/>
       <div id="address-base">
@@ -107,6 +122,7 @@
           </div>
         </div>
       </div>
+      
       <div id="sender-base">
         <div class="div-wrapper">
           <div id="sender-info" class="grey-box">
@@ -136,6 +152,108 @@
           </div>
         </div>
       </div>
+      
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <script>
+        function get_dpmm() {
+          var result = $("#test-div").innerWidth()/25.4;
+          return result;
+        }
+      
+        function dtomm(value) {
+          var mmpd = 1/get_dpmm();
+          return mmpd*value;
+        }
+      
+        function mmtod(value) {
+          var dpmm = get_dpmm();
+          return dpmm*value;
+        }
+    
+        $(function() {
+          var sender_info_margin_top = 32; // mm
+          var sender_info_margin_bottom = 8.46; // mm
+        
+          var text_body_margin_top = 0;
+          // text_body_margin_top += mmtod(sender_info_margin_top); // dots (pixels)
+          text_body_margin_top += mmtod(sender_info_margin_bottom);
+          text_body_margin_top += $("#sender-info").innerHeight();
+        
+          $("#dina-body").css("margin-top", Math.round(text_body_margin_top));
+        });
+      </script>
+      
+      <div id="test-div" style="visibility: hidden; height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;"></div><div id="dina-body">
+      
+      <style>
+        .table-parent {
+          width: 100%;
+        }
+      
+        .table-child-m2 {
+          width: 50%;
+          vertical-align: top;
+        }
+      
+        .table-child-m2 table {
+          width: 100%;
+        }
+      
+        .table-child-m2 td {
+          background-color: red;
+          white-space:nowrap;
+          padding-right: 3mm;
+        }
+      
+        .table-child-m2 td:last-child {
+          background-color: green;
+          padding-right: 0;
+          width: 100%;
+        }
+      </style>
+        
+      <div id="text-base">
+        <div class="div-wrapper">
+          <h2>Rechnung</h2>
+          <table class="table-parent">
+            <tr>
+              <td class="table-child-m2">
+                <table>
+                  <tr>
+                    <td>Rechnungs-Nr.:</td>
+                    <td>M1675</td>
+                  </tr>
+                  <tr>
+                    <td>Auftrags-Nr.:</td>
+                    <td>O1727</td>
+                  </tr>
+                  <tr>
+                    <td>Komission:</td>
+                    <td>Bestellung Gerstner</td>
+                  </tr>
+                  <tr>
+                    <td>Kunden-Nr.:</td>
+                    <td>1068</td>
+                  </tr>
+                  <tr>
+                    <td>Bestell-Nr.:</td>
+                    <td>369852</td>
+                  </tr>
+                </table>
+              </td>
+              <td class="table-child-m2">
+                <table>
+                  <tr>
+                    <td>Rechnungsdatum:</td>
+                    <td>28.05.15</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
     </t>
   </template>
   
