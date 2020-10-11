@@ -208,13 +208,11 @@
         }
       
         .table-child-m2 td {
-          background-color: red;
           white-space:nowrap;
           padding-right: 3mm;
         }
       
         .table-child-m2 td:last-child {
-          background-color: green;
           padding-right: 0;
           width: 100%;
         }
@@ -222,7 +220,7 @@
         
       <div id="text-base">
         <div class="div-wrapper">
-          <h2>Rechnung</h2>
+          <h2><strong>Rechnung</strong></h2>
           <table class="table-parent">
             <tr>
               <td class="table-child-m2">
