@@ -196,8 +196,8 @@
       <style>
         th {
           font-size: 10pt;
-          padding-top: 3mm;
-          padding-bottom: 3mm;
+          padding-top: 4mm;
+          padding-bottom: 4mm;
         }
       
         .table-parent {
@@ -227,9 +227,16 @@
           margin-top: 10mm;
         }
       
+        #sales-table th {
+          border-top: thin solid;
+          border-bottom: thin solid;
+        }
+      
         #sales-table td {
           line-height: 1;
           vertical-align: top;
+          padding-top: 2mm;
+          padding-bottom: 2mm;
         }
       
         #sales-table td:nth-child(1), td:nth-child(2), td:nth-child(3),
