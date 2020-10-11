@@ -379,12 +379,17 @@
         #foldmark-2 {
           margin-top: 165mm;
         }
-        
+      
+        #foldmark-3 {
+          margin-top: 121.5mm;
+          width: 15mm;
+        }
       </style>
       <t t-raw="0" />
     
       <hr id="foldmark-1" class="foldmark"/>
       <hr id="foldmark-2" class="foldmark"/>
+      <hr id="foldmark-3" class="foldmark"/>
     </div>
   </template>
   
