@@ -220,14 +220,22 @@
         
       <div id="text-base">
         <div class="div-wrapper">
-          <h2><strong>Rechnung</strong></h2>
+          <h2>
+            <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+              <strong t-if="doc.state not in ['draft', 'sent']">Rechnung</strong>
+              <strong t-if="doc.state in ['draft', 'sent']">Angebot</strong>
+            </t>
+            <t t-if="env.context.get('proforma', False) or is_pro_forma">
+              <strong>Proformarechnung</strong>
+            </t>
+          </h2>
           <table class="table-parent">
             <tr>
               <td class="table-child-m2">
                 <table>
                   <tr>
                     <td>Rechnungs-Nr.:</td>
-                    <td>M1675</td>
+                    <td><t t-esc="doc.name"/></td>
                   </tr>
                   <tr>
                     <td>Auftrags-Nr.:</td>
@@ -249,28 +257,30 @@
               </td>
               <td class="table-child-m2">
                 <table>
-                  <tr>
-                    <td>Rechnungsdatum:</td>
-                    <td>28.05.15</td>
-                  </tr>
-                  <tr>
-                    <td>Lieferdatum:</td>
-                    <td>28.05.15</td>
-                  </tr>
+                  <t t-if="doc.date_order">
+                    <tr>
+                      <td>Rechnungsdatum:</td>
+                      <td><t t-esc="doc.date_order"/></td>
+                    </tr>
+                  </t>
+                  <t t-if="doc.commitment_date">
+                    <tr>
+                      <td>Lieferdatum:</td>
+                      <td><t t-esc="doc.commitment_date"/></td>
+                    </tr>
+                  </t>
                   <t t-if="doc.user_id.name">
                     <tr>
                       <td>Bearbeiter:</td>
                       <td><t t-esc="doc.user_id.name"/></td>
                     </tr>
                   </t>
-                  <tr>
-                    <td>Telefon:</td>
-                    <td>28.05.15</td>
-                  </tr>
-                  <tr>
-                    <td>E-Mail:</td>
-                    <td>28.05.15</td>
-                  </tr>
+                  <t t-if="doc.user_id.email">
+                    <tr>
+                      <td>E-Mail:</td>
+                      <td><t t-esc="doc.user_id.email"/></td>
+                    </tr>
+                  </t>
                 </table>
               </td>
             </tr>
