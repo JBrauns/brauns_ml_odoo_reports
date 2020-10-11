@@ -216,6 +216,26 @@
           padding-right: 0;
           width: 100%;
         }
+      
+        #sales-table td {
+          line-height: 1;
+          vertical-align: top;
+          margin-top: 10mm;
+        }
+      
+        #sales-table td:nth-child(1), td:nth-child(2), td:nth-child(3),
+          th:nth-child(1), th:nth-child(2), th:nth-child(3) {
+          text-align: left;
+        }
+      
+        #sales-table td:nth-child(4), td:nth-child(6), td:nth-child(7),
+          th:nth-child(4), th:nth-child(6), th:nth-child(7) {
+          text-align: right;
+        }
+      
+        #sales-table td:nth-child(5), th:nth-child(5) {
+          text-align: center;
+        }
       </style>
         
       <div id="text-base">
@@ -229,6 +249,7 @@
               <strong>Proformarechnung</strong>
             </t>
           </h2>
+          
           <table class="table-parent">
             <tr>
               <td class="table-child-m2">
@@ -283,6 +304,27 @@
                   </t>
                 </table>
               </td>
+            </tr>
+          </table>
+        
+          <table id="sales-table" class="table-parent">
+            <tr>
+              <th>Pos.</th>
+              <th>Art-Nr.</th>
+              <th>Bezeichnung</th>
+              <th>Menge</th>
+              <th>Einheit</th>
+              <th>Preis/Einh. (€)</th>
+              <th>Gesamt (€)</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>B-3025-078</td>
+              <td><strong>B-3025, Farbe Grün</strong><br/>Musterartikel</td>
+              <td>1,00</td>
+              <td>1Stk.</td>
+              <td>47,00</td>
+              <td>47,00</td>
             </tr>
           </table>
         </div>
