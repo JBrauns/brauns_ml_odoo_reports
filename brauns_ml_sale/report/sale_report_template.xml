@@ -7,7 +7,7 @@
       <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
       <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap" rel="stylesheet" />
       <style>        
-        body, div, p, .article {
+        body, div, p, table, tr, td, .article {
           margin: 0;
           padding: 0;
           border: 0;
@@ -28,6 +28,11 @@
       
         h2 {
           font-size: 12pt;
+        }
+        
+        table {
+          border-spacing:0;
+          border-collapse:collapse;
         }
         
         p:empty:before {
