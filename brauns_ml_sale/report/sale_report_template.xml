@@ -512,17 +512,23 @@
           width: 165mm;
         }
       
-        #footer-table {
+        #footer-table-wrapper {
           width: 100%;
           height: auto;
           bottom: 5mm;
+        }
+        
+        .footer-table td {
+          font-family: 'Source Sans Pro', sans-serif;
+          line-height: 1.5;
+          font-size: 8pt;
         }
       
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&amp;display=swap')
       </style>
       <div class="clean-block div-wrapper">
-        <div id="footer-table" class="clean-block">
-          <table style="width: 100%;">
+        <div id="footer-table-wrapper" class="clean-block">
+          <table class="footer-table" style="width: 100%;">
             <tr>
               <td>Bernecker Cosmetics GmbH</td>
               <td>Tel +49 2471 921 6815</td>
