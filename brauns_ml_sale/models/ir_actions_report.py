@@ -110,7 +110,7 @@ class IrActionsReport(models.Model):
 
         # dump items...
         #_logger.info(f'WKHTMLTOPDF: header({header.decode("utf-8")})')
-        #_logger.info(f'WKHTMLTOPDF: footer({footer.decode("utf-8")})')
+        _logger.info(f'WKHTMLTOPDF: footer({footer.decode("utf-8")})')
 
         return bodies, res_ids, header, footer, specific_paperformat_args
 
