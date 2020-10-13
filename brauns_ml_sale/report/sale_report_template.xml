@@ -476,7 +476,7 @@
       <hr id="foldmark-3" class="foldmark"/>
     </div>
 
-    <div t-att-class="footer">
+    <div class="footer">
       <style>
         body, .clean-block, .footer {
           margin: 0;
