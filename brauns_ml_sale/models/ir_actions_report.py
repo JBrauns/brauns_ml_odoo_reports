@@ -130,15 +130,16 @@ class IrActionsReport(models.Model):
         command_args = self.change_command_arg(command_args, 'zoom', '1.0')
         command_args = self.change_command_arg(command_args, 'margin-top', '32')
         command_args = self.change_command_arg(command_args, 'margin-left', '0')
+        command_args = self.change_command_arg(command_args, 'footer-spacing', '32')
 
         # Remove unnecessary layout elements
         #command_args = self.pop_command_arg(command_args, 'header-line', False)
         command_args = self.change_command_arg(command_args, 'header-spacing', '32')
-        command_args = self.change_command_arg(command_args, 'footer-spacing', '32')
 
         # disable smart shrinking to allow absolute positioning and size
         # necessary for a clean din 5008 document
         command_args.extend(['--disable-smart-shrinking'])
+        command_args.extend(['--footer-spacing', '32'])
         
-        # _logger.info(f'WKHTMLTOPDF: args({", ".join(command_args)})')
+        _logger.info(f'WKHTMLTOPDF: args({", ".join(command_args)})')
         return command_args
