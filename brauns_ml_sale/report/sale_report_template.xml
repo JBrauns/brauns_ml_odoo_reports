@@ -516,7 +516,7 @@
         #footer-table-wrapper {
           width: 100%;
           height: auto;
-          bottom: 5mm;
+          bottom: 10mm;
         }
         
         .footer-table td {
