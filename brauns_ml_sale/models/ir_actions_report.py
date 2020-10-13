@@ -130,7 +130,7 @@ class IrActionsReport(models.Model):
         command_args = self.change_command_arg(command_args, 'zoom', '1.0')
         command_args = self.change_command_arg(command_args, 'margin-top', '32')
         command_args = self.change_command_arg(command_args, 'margin-left', '0')
-        command_args = self.change_command_arg(command_args, 'footer-spacing', '32')
+        command_args = self.change_command_arg(command_args, 'margin-bottom', '32')
 
         # Remove unnecessary layout elements
         #command_args = self.pop_command_arg(command_args, 'header-line', False)
