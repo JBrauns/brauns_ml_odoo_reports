@@ -134,6 +134,7 @@ class IrActionsReport(models.Model):
         # Remove unnecessary layout elements
         #command_args = self.pop_command_arg(command_args, 'header-line', False)
         command_args = self.change_command_arg(command_args, 'header-spacing', '32')
+        command_args = self.change_command_arg(command_args, 'footer-spacing', '32')
 
         # disable smart shrinking to allow absolute positioning and size
         # necessary for a clean din 5008 document
