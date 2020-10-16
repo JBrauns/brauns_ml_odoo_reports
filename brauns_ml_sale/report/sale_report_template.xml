@@ -200,6 +200,10 @@
           padding-bottom: 4mm;
         }
       
+        .p-bold {
+          font-weight: 600;
+        }
+      
         .table-parent {
           width: 100%;
         }
@@ -251,6 +255,14 @@
       
         #sales-table td:nth-child(5), th:nth-child(5) {
           text-align: center;
+        }
+      
+        .bottom-border-single {
+          border-bottom: thin double black;
+        }
+      
+        .bottom-border-double {
+          border-bottom: 0.8mm double black;
         }
       </style>
         
@@ -341,6 +353,21 @@
               <td>1Stk.</td>
               <td>47,00</td>
               <td>47,00</td>
+            </tr>
+            <tr>
+              <td colspan="4"> </td>
+              <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">Summe Netto</td>
+              <td style="text-align: right; padding-top: 12mm" class="bottom-border-single">€ 186,99</td>
+            </tr>
+            <tr>
+              <td colspan="4"> </td>
+              <td colspan="2" style="text-align: right;" class="bottom-border-double">19,00% USt. auf 186,99</td>
+              <td style="text-align: right;" class="bottom-border-double">€ 35,52</td>
+            </tr>
+            <tr>
+              <td colspan="4"> </td>
+              <td colspan="2" style="text-align: right;" class="bottom-border-single p-bold">Endsumme</td>
+              <td style="text-align: right;" class="bottom-border-single p-bold">€ 222,51</td>
             </tr>
           </table>
         </div>
