@@ -126,7 +126,7 @@ class IrActionsReport(models.Model):
             paperformat_id, landscape, specific_paperformat_args=specific_paperformat_args,
             set_viewport_size=set_viewport_size)
 
-        # The way the zoom argument is used within the dpí cal
+        # The way the zoom argument is used within the dpi cal
         command_args = self.change_command_arg(command_args, 'zoom', '1.0')
         command_args = self.change_command_arg(command_args, 'margin-top', '32')
         command_args = self.change_command_arg(command_args, 'margin-left', '0')

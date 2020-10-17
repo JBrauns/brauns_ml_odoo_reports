@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <odoo>
   <!-- Sale specific templates -->
   
@@ -557,7 +558,7 @@
           <table class="footer-table" style="width: 100%;">
             <tr>
               <td>Bernecker Cosmetics GmbH</td>
-              <td>Tel +49 2471 921 6815</td>
+              <td>Tel <span t-field="company.phone"/></td>
               <td>Amtsgericht Aachen</td>
               <td>Commerzbank</td>
             </tr>
