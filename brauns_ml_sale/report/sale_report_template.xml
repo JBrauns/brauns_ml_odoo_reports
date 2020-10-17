@@ -564,14 +564,14 @@
             </tr>
             <tr>
               <td>Am Muensterwald 11</td>
-              <td>Mail info@bernecker-cosmetics.de</td>
-              <td>HRB 15460</td>
+              <td>Mail <span t-field="company.email"/></td>
+              <td>HRB <span t-field="company.company_registry"/></td>
               <td>IBAN: -missing-</td>
             </tr>
             <tr>
               <td>52159 Roetgen</td>
               <td></td>
-              <td>USt-ID-Nr. DE</td>
+              <td>USt-ID-Nr. <span t-field="company.vat"/></td>
               <td>BIC: -missing-</td>
             </tr>
           </table>
