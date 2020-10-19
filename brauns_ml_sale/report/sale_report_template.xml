@@ -557,19 +557,19 @@
         <div id="footer-table-wrapper" class="clean-block">
           <table class="footer-table" style="width: 100%;">
             <tr>
-              <td>Bernecker Cosmetics GmbH</td>
+              <td><span t-field="company.name"/></td>
               <td>Tel <span t-field="company.phone"/></td>
               <td>Amtsgericht Aachen</td>
               <td>Commerzbank</td>
             </tr>
             <tr>
-              <td>Am Muensterwald 11</td>
+              <td><span t-field="company.street"/></td>
               <td>Mail <span t-field="company.email"/></td>
               <td>HRB <span t-field="company.company_registry"/></td>
               <td>IBAN: -missing-</td>
             </tr>
             <tr>
-              <td>52159 Roetgen</td>
+              <td><span t-field="company.zip"/> <span t-field="company.city"/></td>
               <td></td>
               <td>USt-ID-Nr. <span t-field="company.vat"/></td>
               <td>BIC: -missing-</td>
