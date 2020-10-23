@@ -369,10 +369,13 @@
                     </td>
                     <td name="td_product_id" class="text-left">
                       <span>
-                        <t t-esc="line.name" />
+                        <t t-esc="line.product_id.display_name" />
                       </span>
                     </td>
                     <td>
+                      <span>
+                        <t t-esc="line.name" />
+                      </span><br/>
                       <strong>B-3025, Farbe Blau</strong><br/>Musterartikel
                     </td>
                     <td>
