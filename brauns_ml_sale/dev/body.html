@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet"> 
+    <style>
+      body, div {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      
+      h1 {
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+      p, td, th {
+        font-family: 'Source Sans Pro', sans-serif;
+        line-height: 1.5;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-weight: 300;
+      }
+      
+      div {
+        position: absolute;
+      }
+
+      #dina-header {
+        width: 100%;
+        height: 68.46mm;
+        margin-left: 20mm;
+      }
+
+      #dina-body {
+        width: 165mm;
+        min-height: 20mm;
+        margin-left: 25mm;
+        border: 1px solid black;
+      }
+
+      #address-base {
+        height: 45mm;
+        margin-top: 0mm;
+        width:  85mm;
+        background-color: rgb(97,97,97);
+        vertical-align: right;
+      }
+
+      #address-additional {
+        height: 12.7mm;
+        width:  80mm;
+        top: 5mm;
+        right: 0;
+        background-color: rgba(197,197,197,0.5);
+      }
+
+      #address-info {
+        height: 27.3mm;
+        width:  80mm;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(197,197,197,0.25);
+      }
+
+      .div-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(244,184,184);
+      }
+
+      #sender-base {
+        height: 55mm;
+        width: 75mm;
+        right: 10mm;
+        top: 5mm;
+      }
+
+      #sender-info {
+        min-height: 40mm;
+        max-width: 75mm;
+        top: 0;
+        right: 0;
+        background-color: rgb(197,197,197);
+      }
+      
+      #text_body {
+        height: auto;
+        width: 165mm;
+        margin-left: 15mm;
+        margin-top: 90mm;
+        margin-bottom: 0;
+        background-color: rgb(149, 123, 190);
+      }
+      
+      .foldmark {
+        position: absolute;
+        margin: 0;
+        width: 10mm;
+        border: 0;
+        border-top: 1px solid black;
+      }
+      
+      #foldmark-1 {
+        margin-top: 60mm;
+      }
+      
+      #foldmark-2 {
+        margin-top: 165mm;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+      function get_dpmm() {
+        var result = $("#test-div").innerWidth()/25.4;
+        return result;
+      }
+      
+      function dtomm(value) {
+        var mmpd = 1/get_dpmm();
+        return mmpd*value;
+      }
+      
+      function mmtod(value) {
+        var dpmm = get_dpmm();
+        return dpmm*value;
+      }
+    
+      $(function() {
+        var sender_info_margin_top = 32; // mm
+        var sender_info_margin_bottom = 8.46; // mm
+        
+        var text_body_margin_top = 0;
+        // text_body_margin_top += mmtod(sender_info_margin_top); // dots (pixels)
+        text_body_margin_top += mmtod(sender_info_margin_bottom);
+        text_body_margin_top += $("#sender-info").innerHeight();
+        
+        $("#dina-body").css("margin-top", Math.round(text_body_margin_top));
+      });
+    </script>
+  </head>
+  <body>
+    <div id="dina-header">
+      <div class="div-wrapper">
+        <div id="address-base">
+          <div class="div-wrapper">
+            <div id="address-additional">
+              <p>Zusatz- und Vermerkszone</p>
+            </div>
+            <div id="address-info">
+              <p>Max Müller</p>
+              <p>Firmenstraße 1</p>
+              <p>45678 Muster</p>
+            </div>
+          </div>
+        </div>
+        <div id="sender-base">
+          <div class="div-wrapper">
+            <div id="sender-info">
+              <p>Ihr Zeichen: abc-01</p>
+              <p>Ihre Nachricht vom: 2013-04-23</p>
+              <p>Unser Zeichen: mihh-00</p>
+              <p>Unsere Nachricht vom: 2013-04-16</p>
+              <p></p>
+              <p>Name: Christian Schmidtberger</p>
+              <p>Name: Christian Schmidtberger</p>
+              <p>Name: Christian Schmidtberger</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr id="foldmark-1" class="foldmark"/>
+    <hr id="foldmark-2" class="foldmark"/>
+    
+    <div id="test-div" style="visibility: hidden; height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;"></div>
+    
+    <style>
+      .table-parent {
+        width: 100%;
+      }
+      
+      th {
+        font-size: 10pt;
+        padding-top: 2mm;
+        padding-bottom: 2mm;
+      }
+      
+      .p-bold {
+        font-weight: 600;
+      }
+      
+      .table-child-m2 {
+        width: 50%;
+        vertical-align: top;
+      }
+      
+      .table-child-m2 table {
+        width: 100%;
+      }
+      
+      .table-child-m2 td {
+        background-color: red;
+        white-space:nowrap;
+        padding-right: 3mm;
+      }
+      
+      .table-child-m2 td:last-child {
+        background-color: green;
+        padding-right: 0;
+        width: 100%;
+      }
+      
+      #sales-table {
+        margin-top: 10mm;
+      }
+      
+      #sales-table th {
+        border-top: thin solid;
+        border-bottom: thin solid;
+      }
+      
+      #sales-table td {
+        line-height: 1;
+        vertical-align: top;
+        padding-top: 2mm;
+        padding-bottom: 2mm;
+      }
+      
+      #sales-table td:nth-child(1), td:nth-child(2), td:nth-child(3),
+        th:nth-child(1), th:nth-child(2), th:nth-child(3) {
+        text-align: left;
+      }
+      
+      #sales-table td:nth-child(4), td:nth-child(6), td:nth-child(7),
+        th:nth-child(4), th:nth-child(6), th:nth-child(7) {
+        text-align: right;
+      }
+      
+      #sales-table td:nth-child(5), th:nth-child(5) {
+        text-align: center;
+      }
+      
+      .bottom-border-single {
+        border-bottom: thin double black;
+      }
+      
+      .bottom-border-double {
+        border-bottom: 0.8mm double black;
+      }
+    </style>
+    <div id="dina-body">
+      <div class="div-wrapper">
+        <h2>Rechnung</h2>
+        <table class="table-parent">
+          <tr>
+            <td class="table-child-m2">
+              <table>
+                <tr>
+                  <td>Rechnungs-Nr.:</td>
+                  <td>M1675</td>
+                </tr>
+                <tr>
+                  <td>Auftrags-Nr.:</td>
+                  <td>O1727</td>
+                </tr>
+                <tr>
+                  <td>Komission:</td>
+                  <td>Bestellung Gerstner</td>
+                </tr>
+                <tr>
+                  <td>Kunden-Nr.:</td>
+                  <td>1068</td>
+                </tr>
+                <tr>
+                  <td>Bestell-Nr.:</td>
+                  <td>369852</td>
+                </tr>
+              </table>
+            </td>
+            <td class="table-child-m2">
+              <table>
+                <tr>
+                  <td>Rechnungsdatum:</td>
+                  <td>28.05.15</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        
+        <table id="sales-table" class="table-parent">
+          <tr>
+            <th>Pos.</th>
+            <th>Art-Nr.</th>
+            <th>Bezeichnung</th>
+            <th>Menge</th>
+            <th>Einheit</th>
+            <th>Preis/Einh. (€)</th>
+            <th>Gesamt (€)</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>B-3025-078</td>
+            <td><strong>B-3025, Farbe Grün</strong><br/>Musterartikel</td>
+            <td>1,00</td>
+            <td>1Stk.</td>
+            <td>47,00</td>
+            <td>47,00</td>
+          </tr>
+          <tr>
+            <td colspan="4"> </td>
+            <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">Summe Netto</td>
+            <td style="text-align: right; padding-top: 12mm" class="bottom-border-single">€ 186,99</td>
+          </tr>
+          <tr>
+            <td colspan="4"> </td>
+            <td colspan="2" style="text-align: right;" class="bottom-border-double">19,00% USt. auf 186,99</td>
+            <td style="text-align: right;" class="bottom-border-double">€ 35,52</td>
+          </tr>
+          <tr>
+            <td colspan="4"> </td>
+            <td colspan="2" style="text-align: right;" class="bottom-border-single p-bold">Endsumme</td>
+            <td style="text-align: right;" class="bottom-border-single p-bold">€ 222,51</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
