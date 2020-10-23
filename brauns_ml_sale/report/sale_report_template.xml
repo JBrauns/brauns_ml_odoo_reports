@@ -369,21 +369,25 @@
                     </td>
                     <td name="td_product_id" class="text-left">
                       <span>
-                        <t t-esc="line.product_id" />
+                        <t t-esc="line.order_id" />
                       </span>
                     </td>
                     <td>
                       <strong>B-3025, Farbe Blau</strong><br/>Musterartikel
                     </td>
-                    <td>1,00</td>
-                    <td name="td_quantity" class="text-center">
+                    <td>
                       <span t-field="line.product_uom_qty" />
+                    </td>
+                    <td name="td_quantity" class="text-center">
                       <span t-field="line.product_uom" groups="uom.group_uom" />
                     </td>
                     <td name="td_quantity" class="text-right">
                       <span><t t-esc="line.price_unit" /></span>
                     </td>
-                    <td>47,00</td>
+                    <td>
+                      <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                      <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                    </td>
                   </tr>
                 </t>
 
