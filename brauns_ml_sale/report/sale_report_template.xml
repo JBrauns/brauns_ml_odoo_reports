@@ -348,8 +348,8 @@
                 <th name="th-label" class="text-left">Bezeichnung</th>
                 <th name="th-amount" class="text-right">Menge</th>
                 <th name="th-unit" class="text-center">Einheit</th>
-                <th name="th-unit-price" class="text-right">Preis/Einh. (€)</th>
-                <th name="th-total" class="text-right">Gesamt (€)</th>
+                <th name="th-unit-price" class="text-right">Preis/Einh.</th>
+                <th name="th-total" class="text-right">Gesamt</th>
 				      </tr>
 			      </thead>
             <tbody>
