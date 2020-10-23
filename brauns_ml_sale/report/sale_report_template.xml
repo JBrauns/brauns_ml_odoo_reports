@@ -691,6 +691,7 @@
 
   <template id="report_layout" name="Report layout">
     &lt;!DOCTYPE html&gt;
+    <html t-att-lang="lang and lang.replace('_', '-')">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
