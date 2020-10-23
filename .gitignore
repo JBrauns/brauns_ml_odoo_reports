@@ -1,3 +1,4 @@
 *.sln
 *.pyproj
 .vs
+/brauns_ml_barcode
