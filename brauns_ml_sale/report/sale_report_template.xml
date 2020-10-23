@@ -369,12 +369,14 @@
                     </td>
                     <td name="td_product_id" class="text-left">
                       <span>
-                        <t t-esc="line.product_id.name" />
+                        <t t-esc="line.product_id.default_code" />
+                        <br/>
+                        <t t-esc="line.product_id.code" />
                       </span>
                     </td>
                     <td>
                       <span>
-                        <strong><t t-esc="line.display_name" /></strong><br/>Musterartikel
+                        <strong><t t-esc="line.product_id.name" /></strong><br/>Musterartikel
                       </span>
                     </td>
                     <td>
