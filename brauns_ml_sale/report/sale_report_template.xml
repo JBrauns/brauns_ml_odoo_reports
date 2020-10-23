@@ -691,12 +691,7 @@
 
   <template id="report_layout" name="Report layout">
     &lt;!DOCTYPE html&gt;
-    <html t-att-lang="lang and lang.replace('_', '-')">
       <head>
-        <t t-call-assets="web.report_assets_common" t-js="false"/>
-        <t t-call-assets="web.assets_common" t-css="false"/>
-        <t t-call-assets="web.report_assets_common" t-css="false"/>
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title><t t-esc="title or 'Odoo Report'" /></title>
