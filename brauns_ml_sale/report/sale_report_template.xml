@@ -369,7 +369,7 @@
                     </td>
                     <td name="td_product_id" class="text-left">
                       <span>
-                        <t t-esc="line.order_id" />
+                        <t t-esc="line.reference" />
                       </span>
                     </td>
                     <td>
