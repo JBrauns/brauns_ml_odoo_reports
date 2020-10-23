@@ -359,7 +359,6 @@
               <t t-foreach="doc.order_line" t-as="line">
                 <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded" />
                 <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included" />
-                <t t-set="current_position" t-value="current_position + 1" />
                 
                 <t t-if="not line.display_type">
                   <tr>
@@ -395,7 +394,10 @@
                     </td>
                   </tr>
                 </t>
+
+                <t t-set="current_position" t-value="current_position + 1" />
               </t>
+
               <tr>
                 <td colspan="4"> </td>
                 <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">Summe Netto</td>
