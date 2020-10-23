@@ -370,7 +370,7 @@
                       <span><t t-esc="current_position" /></span>
                     </td>
                     <td>
-                      <strong>B-3025, Farbe Grün</strong><br/>Musterartikel
+                      <strong>B-3025, Farbe Blau</strong><br/>Musterartikel
                     </td>
                     <td>1,00</td>
                     <td name="td_quantity" class="text-center">
