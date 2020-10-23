@@ -369,7 +369,7 @@
                     </td>
                     <td name="td_product_id" class="text-left">
                       <span>
-                        <t t-esc="','.join(map(lambda x: str(x), dir(line.product_id)))" />
+                        <t t-esc="reps(line.product_id.__dict__)" />
                       </span>
                     </td>
                     <td>
