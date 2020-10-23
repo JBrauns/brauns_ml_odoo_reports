@@ -363,10 +363,14 @@
                 <t t-if="not line.display_type">
                   <tr>
                     <td name="td_quantity" class="text-left">
-                      <span><t t-esc="line.product_id" /></span>
+                      <span>
+                        <t t-esc="current_position" />
+                      </span>
                     </td>
                     <td name="td_product_id" class="text-left">
-                      <span><t t-esc="current_position" /></span>
+                      <span>
+                        <t t-esc="line.product_id" />
+                      </span>
                     </td>
                     <td>
                       <strong>B-3025, Farbe Blau</strong><br/>Musterartikel
