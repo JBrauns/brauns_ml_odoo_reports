@@ -374,7 +374,7 @@
                     </td>
                     <td>
                       <span>
-                        <strong><t t-esc="doc.partner_id.lang" /></strong><br/><t t-esc="line.product_id.description" />
+                        <strong><t t-esc="line.product_id.name" /></strong><br/><t t-esc="line.product_id.description" />
                       </span>
                     </td>
                     <td>
