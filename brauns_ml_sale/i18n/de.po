@@ -30,5 +30,5 @@ msgstr "Einheiten"
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content_totals_table
-msgid "<strong>Total</strong>"
-msgstr "<strong>Gesamt</strong>"
+msgid "Total"
+msgstr "Gesamt"
