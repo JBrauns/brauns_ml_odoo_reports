@@ -25,3 +25,10 @@ msgstr ""
 #: model:product.template,uom_name:sale.product_product_4e_product_template
 msgid "Units"
 msgstr "Einheiten"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content_totals_table
+msgid "<strong>Total</strong>"
+msgstr "<strong>Gesamt</strong>"
