@@ -409,9 +409,14 @@
               </t>
 
               <tr>
-                <td colspan="4"> </td>
-                <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">Summe Netto</td>
-                <td style="text-align: right; padding-top: 12mm" class="bottom-border-single">€ 186,99</td>
+                <td colspan="4">
+                </td>
+                <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">
+                  <strong>Subtotal</strong>
+                </td>
+                <td style="text-align: right; padding-top: 12mm" class="bottom-border-single">
+                  <span t-field="doc.amount_untaxed"/>
+                </td>
               </tr>
               <tr>
                 <td colspan="4"> </td>
