@@ -419,9 +419,14 @@
                 <td style="text-align: right;" class="bottom-border-double">€ 35,52</td>
               </tr>
               <tr>
-                <td colspan="4"> </td>
-                <td colspan="2" style="text-align: right;" class="bottom-border-single p-bold">Endsumme</td>
-                <td style="text-align: right;" class="bottom-border-single p-bold">€ 222,51</td>
+                <td colspan="4">
+                </td>
+                <td colspan="2" style="text-align: right;" class="bottom-border-single">
+                  <strong>Total</strong>
+                </td>
+                <td style="text-align: right;" class="bottom-border-single p-bold">
+                  <span t-field="doc.amount_total"/>
+                </td>
               </tr>
             </tbody>
           </table>
