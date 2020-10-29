@@ -292,16 +292,12 @@
                     <td><t t-esc="doc.name"/></td>
                   </tr>
                   <tr>
-                    <td>Auftrags-Nr.:</td>
-                    <td>O1727</td>
-                  </tr>
-                  <tr>
                     <td>Komission:</td>
                     <td>Bestellung Gerstner</td>
                   </tr>
                   <tr>
                     <td>Kunden-Nr.:</td>
-                    <td>1068</td>
+                    <td><t t-esc="doc.client_order_ref"/></td>
                   </tr>
                   <tr>
                     <td>Bestell-Nr.:</td>
@@ -399,7 +395,8 @@
                     <td colspan="2" id="id-section-subtotal" class="text-right bottom-border-single">Summe Netto</td>
                     <td id="id-section-subtotal" class="text-right bottom-border-single">
                       <span>
-                        <t t-esc="' '.join((current_subtotal, doc.pricelist_id.currency_id))" />
+                        <span t-esc="current_subtotal"
+                              t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' />
                       </span>
                     </td>
                   </tr>
@@ -412,25 +409,31 @@
                 <td colspan="4">
                 </td>
                 <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">
-                  <strong class="mr16">Subtotal</strong>
+                  <strong class="mr16">Summe Netto</strong>
                 </td>
                 <td style="text-align: right; padding-top: 12mm" class="bottom-border-single">
-                  <span t-esc="current_subtotal" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' />
+                  <span t-esc="doc.amount_untaxed"
+                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' />
                 </td>
               </tr>
               <tr>
                 <td colspan="4"> </td>
-                <td colspan="2" style="text-align: right;" class="bottom-border-double">19,00% USt. auf 186,99</td>
-                <td style="text-align: right;" class="bottom-border-double">€ 35,52</td>
+                <td colspan="2" style="text-align: right;" class="bottom-border-double">
+                  19,00% USt. auf <span t-esc="current_subtotal" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' />
+                </td>
+                <td style="text-align: right;" class="bottom-border-double">
+                  <span t-esc="doc.amount_tax" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' />
+                </td>
               </tr>
               <tr>
                 <td colspan="4">
                 </td>
                 <td colspan="2" style="text-align: right;" class="bottom-border-single">
-                  <strong>Total</strong>
+                  <strong>Gesamtsumme</strong>
                 </td>
                 <td style="text-align: right;" class="bottom-border-single p-bold">
-                  <span t-field="doc.amount_total"/>
+                  <span t-field="doc.amount_total"
+                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' />
                 </td>
               </tr>
             </tbody>
