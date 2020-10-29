@@ -409,7 +409,6 @@
                 <td colspan="4">
                 </td>
                 <td colspan="2" style="text-align: right; padding-top: 12mm" class="bottom-border-single">
-                  <t t-esc="_t('Subtotal')" />
                   <strong class="mr16">Summe Netto</strong>
                 </td>
                 <td style="text-align: right; padding-top: 12mm" class="bottom-border-single">
