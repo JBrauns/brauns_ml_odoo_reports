@@ -27,6 +27,6 @@ msgid "Units"
 msgstr "Einheiten"
 
 #. module: brauns_ml_sale
-#: arch_db:brauns_ml_sale.report_saleorder_document
+#: arch_db:sale.report_saleorder_document
 msgid "Total"
 msgstr "Gesamt"
